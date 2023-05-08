@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form action="/" method="POST">
+            <input type="text" name="city" placeholder="Enter city name">
+            <button type="submit">Get Weather</button>
+        </form>
+        {% if weather_data %}
+        <div class="weather-data">
+            <div class="weather-info">
+              <div class="weather-icon">
+                <img src="{{ icon_url }}" alt="{{ weather_data['description'] }}" />
+            </div>
+            
+                <div class="weather-description">
+                    {{ weather_data['description'] }}
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="weather-detail">
+                    <div class="detail-label">Temperature:</div>
+                    <div class="detail-value">{{ weather_data['temperature'] }}°C</div>
+                </div>
+                <div class="weather-detail">
+                    <div class="detail-label">Humidity:</div>
+                    <div class="detail-value">{{ weather_data['humidity'] }}%</div>
+                </div>
+                <div class="weather-detail">
+                    <div class="detail-label">Wind Speed:</div>
+                    <div class="detail-value">{{ weather_data['wind_speed'] }} km/h</div>
+                </div>
+                <div class="weather-detail">
+                    <div class="detail-label">Sunrise:</div>
+                    <div class="detail-value">{{ weather_data['sunrise'] }}</div>
+                </div>
+                <div class="weather-detail">
+                    <div class="detail-label">Sunset:</div>
+                    <div class="detail-value">{{ weather_data['sunset'] }}</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

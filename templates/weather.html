@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card my-5">
+        <div class="card-body">
+          <h1 class="card-title text-center">Weather for {{ weather.city }}</h1>
+          <div class="weather-card">
+            <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weather Icon">
+            <div class="weather-info">
+              <div class="weather-city">{{ weather.city }}</div>
+              <div class="weather-description">{{ weather.description }}</div>
+              <div class="weather-temperature">{{ weather.temperature }}°C</div>
+              <div class="weather-humidity">Humidity: {{ weather.humidity }}%</div>
+              <div class="weather-wind">Wind speed: {{ weather.wind_speed }} m/s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
